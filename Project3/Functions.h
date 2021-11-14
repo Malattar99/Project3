@@ -23,26 +23,30 @@ public:
         else {
             for (int i = 0; i < cars.size(); i++)
             {
-                //std::cout << "Schleife beginnt\n";
-                //std::cout << i << std::endl;
-                switch (cars[i]->getCurrentDir()) {
+                //for (int u = 0; u < cars.size(); u++)
+               // {
+                   // u = i + 1;
+                    //std::cout << "Schleife beginnt\n";
+                    //std::cout << i << std::endl;
+                    switch (cars[i]->getCurrentDir()) {
 
-                case Direction::SOUTH:
-                    if (cars[i]->getPos().y < 150) {
-                        return blocked = 1;
-                        //std::cout << "blocked" << std::endl;
+                    case Direction::SOUTH:
+                        if (cars[i]->getPos().y < 150 ) {
+                            return blocked = 1;
+                            //std::cout << "blocked" << std::endl;
+                        }
+
+
+                        else { blocked = 0; }
+
+                        break;
+                        break;
+
+                    default: blocked = 0;
+                        break;
+
                     }
-                    
-
-                    else { blocked = 0; }
-
-                    break;
-                    break;
-
-                default: blocked = 0;
-                    break;
-
-                }
+                
 
             }
             return blocked;

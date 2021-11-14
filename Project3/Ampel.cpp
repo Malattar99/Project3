@@ -103,7 +103,7 @@ void Ampel::cycleAmpel()
         cycle = false;
 
     }
-    else if (timer.getElapsedTime().asSeconds() > 10 && timer.getElapsedTime().asSeconds() <= 11 && cycle == false)
+    else if (timer.getElapsedTime().asSeconds() > 40 && timer.getElapsedTime().asSeconds() <= 41 && cycle == false)
     {
         initAmpelNord(Ampel_Farbe::YELLOW);
         initAmpelSued(Ampel_Farbe::YELLOW);
@@ -112,7 +112,7 @@ void Ampel::cycleAmpel()
         cycle = true;
 
     }
-    else if (timer.getElapsedTime().asSeconds() > 11 && timer.getElapsedTime().asSeconds() <= 20 && cycle == true)
+    else if (timer.getElapsedTime().asSeconds() > 41 && timer.getElapsedTime().asSeconds() <= 50 && cycle == true)
     {
         initAmpelNord(Ampel_Farbe::RED);
         initAmpelSued(Ampel_Farbe::RED);
@@ -120,7 +120,7 @@ void Ampel::cycleAmpel()
         initAmpelWest(Ampel_Farbe::GREEN);
         cycle = false;
     }
-    else if (timer.getElapsedTime().asSeconds() > 21 && cycle == false)
+    else if (timer.getElapsedTime().asSeconds() > 51 && cycle == false)
     {
         timer.restart();
         cycle = true;

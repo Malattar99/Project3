@@ -5,17 +5,29 @@
 #include <math.h>
 #include <iostream>
 #include <time.h>
+#include "GUI.h"
 
 
 class SimulationKreis
 {
+
+private:
+
+	//Übernehmen der Wk´s aus dem GUI
+	int WkFahrer1;
+	int WkFahrer2;
+	int WkFahrer3;
+
 public:
 	SimulationKreis();
 	~SimulationKreis();
 
 	void run();
 
-	std::vector <AutosO*> autosO;
+	std::vector <AutosO*> autosO;//Vektor für Autos, die vor dem Kreisverkehr sind
+	std::vector <AutosO*> autosOInKV;
+	std::vector <AutosO*> autosOOutKv;
+
 
 	void spawnAutosNord();
 	void spawnAutosWest();
@@ -23,14 +35,33 @@ public:
 	void spawnAutosSued();
 
 	void spawnAutos();
-
+	void deleteAutosO();
+	void moveAutosInKV();
+	void moveAutosbeforeKV();
+	void moveAutosOutKV();
 	void moveAutos();
+
+
+	void checkDestination();
+
+	void initWahrscheinlichkeiten(int WKFahrer1, int WKFahrer2, int WKFahrer3);
 
 	void renderAutosO(sf::RenderTarget& target);
 
 	int rndValueSpawn;
 	int rndValueDirection;
 	int rndValueType;
+
+	int endCounterNorthKV;
+	int endCounterEastKV;
+	int endCounterSouthKV;
+	int endCounterWestKV;
+
+	int startCounterNorthKV;
+	int startCounterEastKV;
+	int startCounterSouthKV;
+	int startCounterWestKV;
+
 
 
 };

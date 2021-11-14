@@ -119,6 +119,7 @@ void Simulation::run()
 
 		if (startIsAllowed) {
 			this->updateAfterStart();
+			this->simulationKreisverkehr->run();
 			if (clock.getElapsedTime().asSeconds() >= this->gui->getTimeFromEditBox()) {
 				startIsAllowed = false;
 			}
@@ -271,7 +272,7 @@ void Simulation::updateAfterStart() {
 	for (auto* car : this->autos)
 	{
 		car->update(ampel->ampel_n_green, ampel->ampel_s_green, ampel->ampel_o_green, ampel->ampel_w_green);
-		car->AntiCrash(ampel->ampel_n_green, ampel->ampel_s_green, ampel->ampel_o_green, ampel->ampel_w_green);
+		
 		//std::cout << "Auto moved" << std::endl;
 	}
 
@@ -292,7 +293,7 @@ void Simulation::updateAfterStart() {
 	}
 
 	this->gui->updateCounterOutcome(endCounterNorth, endCounterEast, endCounterSouth, endCounterWest, startCounterNorth, startCounterEast, startCounterSouth, startCounterWest);
-	this->gui->updateCounterOutcomeKV(endCounterNorthKV, endCounterEastKV, endCounterSouthKV, endCounterWestKV, startCounterNorthKV, startCounterEastKV, startCounterSouthKV, startCounterWestKV);
+	this->gui->updateCounterOutcomeKV(simulationKreisverkehr->endCounterNorthKV, simulationKreisverkehr->endCounterEastKV, simulationKreisverkehr->endCounterSouthKV, simulationKreisverkehr->endCounterWestKV, simulationKreisverkehr->startCounterNorthKV, simulationKreisverkehr->startCounterEastKV, simulationKreisverkehr->startCounterSouthKV, simulationKreisverkehr->startCounterWestKV);
 }
 
 void Simulation::render() {

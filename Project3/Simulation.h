@@ -56,7 +56,7 @@ public:
 	void updateAuto();
 	void updateAfterStart();
 	void deleteAutos();
-	void deleteAutosO();
+	
 	void update();
 	void render();
 
